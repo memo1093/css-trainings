@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  background: linear-gradient(rgba(121, 210, 255, 0.5), rgb(255, 255, 255));
+  display: grid;
+  place-content: center;
+}
+.card {
+  padding: 1rem;
+  border-radius: 0.25rem;
+  max-width: 20rem;
+  background-color: transparent;
+  backdrop-filter: blur(100px);
+  color: #ff7a3d;
+  background-image: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.603),
+    rgba(255, 255, 255, 0.2)
+  );
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+}
+.card > .card-title {
+  writing-mode: vertical-lr;
+}
