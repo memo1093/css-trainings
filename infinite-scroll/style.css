@@ -1,0 +1,47 @@
+:root {
+  --scroll-height: 4rem;
+  --box-width: 8rem;
+  --total-animation-delay: 30s;
+  --item-count: 10;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+.scroll {
+  position: relative;
+  max-width: 1280px;
+  height: var(--scroll-height);
+  margin-inline: auto;
+  margin-top: 10rem;
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 1) 20%,
+    rgba(0, 0, 0, 1) 80%,
+    rgba(0, 0, 0, 0)
+  );
+}
+.scroll-item {
+  border-radius: 0.5rem;
+  height: var(--scroll-height);
+  width: var(--box-width);
+  background-color: red;
+  position: absolute;
+  left: max(calc(var(--box-width) * var(--item-count)), 100%);
+  top: 0;
+  border: none;
+  animation: var(--total-animation-delay) linear infinite 0.5s scroll;
+  animation-delay: calc(
+    var(--total-animation-delay) / var(--item-count) *
+      (var(--item-count) - var(--item-order)) * -1
+  );
+}
+
+@keyframes scroll {
+  to {
+    left: calc(-1 * var(--box-width));
+  }
+}
